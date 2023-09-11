@@ -11,7 +11,11 @@
             <tr v-for="item in items" :key="item.id">
                 <td class="table__item" v-for="{title, value}, key in headers" :key="key">
                     <img class="table__image" v-if="value === 'image'" :src="item.image" :alt="item.name" />
-                    <p v-else>{{ item[value] }}</p>
+                    
+                    <p v-else>{{
+                        //@ts-ignore
+                        item[value]
+                    }}</p>
                 </td>
             </tr>
         </tbody>
