@@ -1,6 +1,6 @@
 <template>
     <div class="pagination">
-        <button @click="$emit('change', value - 1)" :disabled="value === 1" style="cursor: pointer;">
+        <button @click="$emit('change', 1)" :disabled="value === 1" style="cursor: pointer;">
             &#60
         </button>
         <div v-for="page in getPaginationItems">
@@ -17,7 +17,7 @@
                 {{ page }}
             </button>
         </div>
-        <button @click="$emit('change', value + 1)" :disabled="value === length" style="cursor: pointer;">
+        <button @click="$emit('change', length)" :disabled="value === length" style="cursor: pointer;">
             &#62
         </button>
     </div>
