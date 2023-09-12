@@ -47,18 +47,22 @@ const paginationItems = (value: number, length: number, total: number): Array<nu
     let first;
     let current = value;
     let last;
+    let more;
     
     if (value !== 1 && value !== length) {
         first = value - 1;
         last = value + 1;
     } else {
         value === 1 ? last = value + 1 : first = value - 1;
+        if(length > 3) more = '...';
     }
 
-    const result: Array<number> = [];
+    const result: Array<number | string> = [];
+    value === length && more && result.push(more);
     first && result.push(first);
     result.push(current);
     last && result.push(last);
+    value === 1 && more && result.push(more);
 
     return result;
     // const totalVisible = value <= 3 || value >= length - 2 ? 5 : total;
